@@ -1,78 +1,40 @@
-name: DeGov Example DAO
-logo: "https://degov-dev.vercel.app/assets/image/logo.svg"
+name: RingDAO
+logo: https://raw.githubusercontent.com/darwinia-network/devops/refs/heads/main/assets/ringdao/ringdao-portfolio-black.svg
 description: |
-  This is a DeGov case configuration, powered by RingDAO,
-  showcasing how to empower your DAO to achieve transparent and efficient community governance.
-
-# The following fields in the links are optional and will be used to display basic information about the DAO
+  RingDAO is a Venture DAO focused on curating DeFi and DAO applications within the blockchain space, originally from the Darwinia chain.
+  The DAO's operations are governed by all RING holders, who make decisions to innovate and expand the ecosystem.
 links:
-  website: https://example.com/
-  twitter: https://x.com/TWITTER
-  discord: https://discord.com/invite/DISCORD
-  telegram: https://t.me/TELEGRAM
-  github: https://github.com/GITHUB
-  email: # It's ok to leave it empty
+  website: https://ringdao.com/
+  twitter: https://x.com/ringecosystem
+  discord: https://discord.com/invite/BhNbKWWfGV
+  telegram: https://t.me/ringecosystem
+  github: https://github.com/ringecosystem
 
 wallet:
-  # if you want to use wallet connect, you need to provide the project id
-  # please refer to https://walletconnect.network/ for more information
-  walletConnectProjectId:
+  walletConnectProjectId: ddec8a363be3b4f9c2a34beaf38cc251
 
-# Chain information: these commented fields are optional if this chain can be accessed by viem.
 chain:
-  ## chain id
-  id: 1
-  ## chain logo
-  logo: https://icons.llamao.fi/icons/chains/rsz_ethereum.jpg
-  name: ethereum
+  id: 46
+  logo: https://darwinia.network/images/darwinia-logo-black-background-round.svg
   rpcs:
-    - https://ethereum-rpc.publicnode.com
+    - https://rpc.darwinia.network
   explorers:
-    - https://etherscan.io/
+    - https://explorer.darwinia.network/
   nativeToken:
-    ## native token symbol
     symbol: RING
-    ## fetch price symbol of this token
     priceId: RING
-    ## decimals of native token
     decimals: 18
 
 indexer:
-  ## your deployed indexer endpoint
-  ## default endpoint setted by env.DEGOV_INDEXER_POR
-  endpoint: http://localhost:4350/graphql
-  ## you wanted sync start block number for indexer
-  startBlock: 0
-  ## indexer use default endpoint from above chain configuration
-  ## if you want to change different endpoint, please provide it here
-  ## there is support websocket endpoint.
-  # rpc: https://rpc.your.network
-  ## Degov use sqd.ai to index you contract, you can use gateway to fast sync your contract
-  ## more info please refer to https://docs.sqd.ai/subsquid-network/reference/networks/
-  # gateway: https://gateway.your.network
+  endpoint: https://gov.ringdao.com/indexer/graphql
+  startBlock: 4455584
+  rpc: wss://rpc.darwinia.network
 
-# Core contracts related to the DAO Governance
 contracts:
-  ## governor contract
-  governor: "0x0000000000000000000000000000000000000000"
-  ## governor token contract
+  governor: "0x52cDD25f7C83c335236Ce209fA1ec8e197E96533"
   governorToken:
-    address: "0x0000000000000000000000000000000000000000"
-    ## token standard: ERC20, ERC721
-    ## this is important, will affect how the index calculates the number of tokens
-    ## please fill in according to the actual situation
+    address: "0xdafa555e2785DC8834F4Ea9D1ED88B6049142999"
     standard: ERC20
-  timeLock: "0x0000000000000000000000000000000000000000"
+  timeLock: "0x4DCf0f14cC58fc2Bf313e70573dDB7309523bb23"
 
-# The treasury assets information
 timeLockAssets:
-  FT:
-    contract: "0x0000000000000000000000000000000000000000"
-    standard: ERC20
-    priceId: FT
-    logo: # Default logo if not provided
-  NFT:
-    contract: "0x0000000000000000000000000000000000000000"
-    standard: ERC721
-    priceId: NFT
-    logo: # Default logo if not provided
